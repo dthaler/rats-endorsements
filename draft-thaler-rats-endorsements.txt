@@ -9,7 +9,7 @@ Expires: 18 November 2023
 
 
                            RATS Endorsements
-                 draft-dthaler-rats-endorsements-latest
+                 draft-thaler-rats-endorsements-latest
 
 Abstract
 

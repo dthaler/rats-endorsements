@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-05-25T00:29:10.686612+00:00",
+  "timestamp": "2023-05-28T00:33:24.036432+00:00",
   "repo": "dthaler/rats-endorsements",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOJj8oQM5nCuIi",
+      "title": "Add text about endorsements for layers other than the bottom",
+      "url": "https://github.com/dthaler/rats-endorsements/issues/1",
+      "state": "OPEN",
+      "author": "dthaler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-05-27T14:45:15Z",
+      "updatedAt": "2023-05-27T14:45:15Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }

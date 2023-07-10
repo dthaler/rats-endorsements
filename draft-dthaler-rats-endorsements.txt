@@ -4,8 +4,8 @@
 
 RATS Working Group                                             D. Thaler
 Internet-Draft                                                 Microsoft
-Intended status: Informational                               18 May 2023
-Expires: 19 November 2023
+Intended status: Informational                              10 July 2023
+Expires: 11 January 2024
 
 
                            RATS Endorsements
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 November 2023.
+   This Internet-Draft will expire on 11 January 2024.
 
 Copyright Notice
 
@@ -67,13 +67,14 @@ Table of Contents
    1.  Introduction
    2.  Actual State vs Reference States
      2.1.  RATS Conceptual Messages
-   3.  Endorsement Format Considerations
-     3.1.  Security Considerations
-     3.2.  Scalability Considerations
-   4.  IANA Considerations
-   5.  References
-     5.1.  Normative References
-     5.2.  Informative References
+   3.  Conditionally Endorsed Values
+   4.  Endorsement Format Considerations
+     4.1.  Security Considerations
+     4.2.  Scalability Considerations
+   5.  IANA Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Author's Address
 
 1.  Introduction
@@ -100,7 +101,7 @@ Table of Contents
    state, and information about desired/undesired states, and an
    appraisal policy that controls how the two are compared.
 
-   Actual state is a group of claims about the actual state of the
+   "Actual state" is a group of claims about the actual state of the
    attester at a given point in time.  Generally speaking, each claim
    has a name (or other ID) and a singleton value, being the value of
    that specific attester at a given point in time.  Some claims may
@@ -114,7 +115,7 @@ Table of Contents
    attester is a group of such claimsets, for all the key components of
    the attester that are essential to determining trustworthiness.
 
-   Reference state is a group of claims about the desired or undesired
+   "Reference state" is a group of claims about the desired or undesired
    state of the attester.  Typically, each claim has a name (or other
    ID) and a set of potential values, being the values that are allowed/
    disallowed when determining whether to trust the attester.  In
@@ -195,12 +196,46 @@ Table of Contents
    anchor store, which is part of the layer 0 reference state depicted
    above.
 
-3.  Endorsement Format Considerations
+3.  Conditionally Endorsed Values
+
+   Some claims in endorsements might be conditional.  A claim is
+   conditional if it only applies if actual state matches reference
+   values, according to some matching policy.
+
+   Endorsers should not use conditionally endorsed values based on
+   immutable values of actual state in Evidence (such as an immutable
+   serial number for example).  An Endorser can, however, use
+   conditionally endorsed values based on mutable values.  For example
+   an Endorser for a given CPU might provide additional information
+   about what the CPU supports based on current firmware configuration
+   state.
+
+   Policies around matching actual state in Evidence against reference
+   states are normally expressed in Appraisal Policy for Evidence.
+   Similarly, reference states are normally expressed in the Reference
+   Values conceptual message.  Such policies allow a Verifier and
+   Relying Parties to make their decisions about trustworthiness of an
+   Attester.
+
+   The use of conditionally endorsed values, however, is different in
+   that a matching policy is not about trustworthiness (and hence not
+   "appraisal" per se) but rather about whether an Endorser's claim is
+   applicable or not, and thus usable as input to trustworthiness
+   appraisal or not.
+
+   As such the matching policy for conditionally endorsed values must be
+   up to the Endorser not the Appraisal Policy Provider.  Thus, an
+   Endorsement format that supports conditionally endorsed values would
+   probably include some minimal matching policy (e.g., exact match
+   against a singleton reference value).  This unfortunately complicates
+   design as a Verifier may need multiple parsers for matching policies.
+
+4.  Endorsement Format Considerations
 
    This section discusses considerations around formats for
    Endorsements.
 
-3.1.  Security Considerations
+4.1.  Security Considerations
 
    In many scenarios, a Verifiers can also support a variety of
    different formats, and while code size may not be a huge concern,
@@ -210,7 +245,7 @@ Table of Contents
    such, using the same format for both Evidence and Endorsements can
    reduce complexity and hence increase security.
 
-3.2.  Scalability Considerations
+4.2.  Scalability Considerations
 
    We currently assume that Reference Value Providers and Endorsers
    typically provide the same information to a potentially large number
@@ -239,20 +274,24 @@ Table of Contents
    code size savings due to having only a single parser in this limited
    case.
 
-4.  IANA Considerations
+   Similarly, an embedded constrained Verifier can choose to not support
+   conditionally endorsed values, in order to avoid complexity
+   introduced by such.
+
+5.  IANA Considerations
 
    This document does not require any actions by IANA.
 
-5.  References
+6.  References
 
-5.1.  Normative References
+6.1.  Normative References
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
               Architecture", RFC 9334, DOI 10.17487/RFC9334, January
               2023, <https://www.rfc-editor.org/rfc/rfc9334>.
 
-5.2.  Informative References
+6.2.  Informative References
 
    [TCG-DICE] Trusted Computing Group, "DICE Certificate Profiles",
               n.d., <https://trustedcomputinggroup.org/wp-

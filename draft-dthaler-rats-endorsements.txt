@@ -68,13 +68,14 @@ Table of Contents
    2.  Actual State vs Reference States
      2.1.  RATS Conceptual Messages
    3.  Conditionally Endorsed Values
-   4.  Endorsement Format Considerations
-     4.1.  Security Considerations
-     4.2.  Scalability Considerations
-   5.  IANA Considerations
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   4.  Endorsing Identity
+   5.  Endorsement Format Considerations
+     5.1.  Security Considerations
+     5.2.  Scalability Considerations
+   6.  IANA Considerations
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Author's Address
 
 1.  Introduction
@@ -230,12 +231,26 @@ Table of Contents
    against a singleton reference value).  This unfortunately complicates
    design as a Verifier may need multiple parsers for matching policies.
 
-4.  Endorsement Format Considerations
+4.  Endorsing Identity
+
+   One type of claims that might be endorsed would be claims having to
+   do with identity, such as verification keys.  While identity claims
+   are just another type of claims that may be endorsed, some
+   implementations might treat them differently.  For example, a
+   Verifier might perform a first step to cryptographically verify the
+   Attester's identity before spending effort on another step to
+   appraise other claims for determining trustworthiness.
+
+   This document treats identity claims as with any other claims, but
+   allows Appraisal Policy for Evidence to have multiple steps if
+   desired.
+
+5.  Endorsement Format Considerations
 
    This section discusses considerations around formats for
    Endorsements.
 
-4.1.  Security Considerations
+5.1.  Security Considerations
 
    In many scenarios, a Verifiers can also support a variety of
    different formats, and while code size may not be a huge concern,
@@ -245,7 +260,7 @@ Table of Contents
    such, using the same format for both Evidence and Endorsements can
    reduce complexity and hence increase security.
 
-4.2.  Scalability Considerations
+5.2.  Scalability Considerations
 
    We currently assume that Reference Value Providers and Endorsers
    typically provide the same information to a potentially large number
@@ -278,20 +293,20 @@ Table of Contents
    conditionally endorsed values, in order to avoid complexity
    introduced by such.
 
-5.  IANA Considerations
+6.  IANA Considerations
 
    This document does not require any actions by IANA.
 
-6.  References
+7.  References
 
-6.1.  Normative References
+7.1.  Normative References
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
               Architecture", RFC 9334, DOI 10.17487/RFC9334, January
               2023, <https://www.rfc-editor.org/rfc/rfc9334>.
 
-6.2.  Informative References
+7.2.  Informative References
 
    [TCG-DICE] Trusted Computing Group, "DICE Certificate Profiles",
               n.d., <https://trustedcomputinggroup.org/wp-

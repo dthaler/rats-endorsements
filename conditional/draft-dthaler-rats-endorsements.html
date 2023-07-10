@@ -14,22 +14,22 @@ in a format needed by a Relying Party.  This document explains the purpose and
 role of Endorsements and discusses some considerations in the choice of
 message format for Endorsements. 
     " name="description">
-<meta content="xml2rfc 3.17.1" name="generator">
+<meta content="xml2rfc 3.17.4" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-dthaler-rats-endorsements-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.1
-    Python 3.10.11
-    appdirs 1.4.4
+  xml2rfc 3.17.4
+    Python 3.11.4
     ConfigArgParse 1.5.3
-    google-i18n-address 2.5.2
+    google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.2
+    platformdirs 3.8.0
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.28.1
-    setuptools 65.6.0
+    requests 2.31.0
+    setuptools 67.7.2
     six 1.16.0
     wcwidth 0.2.6
 -->
@@ -613,6 +613,7 @@ sub, sup {
   clear: left;
   float: left;
   text-align: right;
+  margin-right: 1ch;
 }
 #identifiers dd {
   margin: 0;
@@ -1051,11 +1052,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RATS Endorsements</td>
-<td class="right">May 2023</td>
+<td class="right">July 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thaler</td>
-<td class="center">Expires 18 November 2023</td>
+<td class="center">Expires 11 January 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-dthaler-rats-endorsements-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-05-17" class="published">17 May 2023</time>
+<time datetime="2023-07-10" class="published">10 July 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-11-18">18 November 2023</time></dd>
+<dd class="expires"><time datetime="2024-01-11">11 January 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1124,7 @@ message format for Endorsements.<a href="#section-abstract-1" class="pilcrow">¶
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 November 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1156,7 +1157,7 @@ message format for Endorsements.<a href="#section-abstract-1" class="pilcrow">¶
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-current-state-vs-reference-" class="internal xref">Current State vs Reference States</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-actual-state-vs-reference-s" class="internal xref">Actual State vs Reference States</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-rats-conceptual-messages" class="internal xref">RATS Conceptual Messages</a></p>
@@ -1164,32 +1165,35 @@ message format for Endorsements.<a href="#section-abstract-1" class="pilcrow">¶
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-endorsement-format-consider" class="internal xref">Endorsement Format Considerations</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-scalability-considerations" class="internal xref">Scalability Considerations</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conditionally-endorsed-valu" class="internal xref">Conditionally Endorsed Values</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-endorsement-format-consider" class="internal xref">Endorsement Format Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-scalability-considerations" class="internal xref">Scalability Considerations</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1213,16 +1217,16 @@ formats and generate Attestation Results in the format needed by a Relying Party
 </div>
 <div id="statetypes">
 <section id="section-2">
-      <h2 id="name-current-state-vs-reference-">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-current-state-vs-reference-" class="section-name selfRef">Current State vs Reference States</a>
+      <h2 id="name-actual-state-vs-reference-s">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-actual-state-vs-reference-s" class="section-name selfRef">Actual State vs Reference States</a>
       </h2>
 <p id="section-2-1">Appraisal policies (Appraisal Policy for Evidence, and Appraisal Policy for
-Attestation Results) involve comparing the current state of an attester against
+Attestation Results) involve comparing the actual state of an attester against
 desired or undesired states, in order to determine how trustworthy the attester
 is for its purposes.  Thus, a Verifier needs to receive messages with information
-about current state, and information about desired/undesired states, and an appraisal
+about actual state, and information about desired/undesired states, and an appraisal
 policy that controls how the two are compared.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">Current state is a group of claims about the actual state of the attester at a
+<p id="section-2-2">"Actual state" is a group of claims about the actual state of the attester at a
 given point in time.  Generally speaking, each claim has a name (or other ID)
 and a singleton value, being the value of that specific attester at a given point
 in time. Some claims may inherently have multiple values, such as a list of
@@ -1230,26 +1234,26 @@ files in a given location on the device, but for our purposes we will treat such
 a list as a single unit, meaning one attester at one point in time.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Each attester in general has multiple components (e.g., hardware, firmware,
 Operating System, etc.), each with their own set of claims (sometimes called
-a "claimset"), where the current state of the attester is a group of such claimsets,
+a "claimset"), where the actual state of the attester is a group of such claimsets,
 for all the key components of the attester that are essential to determining
 trustworthiness.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">Reference state is a group of claims about the desired or undesired state of
+<p id="section-2-4">"Reference state" is a group of claims about the desired or undesired state of
 the attester.  Typically, each claim has a name (or other ID) and
-a set of potential values, being the current values that are allowed/disallowed
+a set of potential values, being the values that are allowed/disallowed
 when determining whether to trust the attester.  In general there may be more
 gradation than simply "allowed or disallowed" so each value might include some
 more complex level of gradation in some implementations.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">That is, where current state has a single value per claim per component
+<p id="section-2-5">That is, where actual state has a single value per claim per component
 applying to one device at one point in time, reference state has a set of values
 per claim per component.  The appraisal policy then specifies how to match
-the current value against the set of reference values.<a href="#section-2-5" class="pilcrow">¶</a></p>
+the actual value against the set of reference values.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">Some examples of such matching include:<a href="#section-2-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2-7.1">The current value must be in the set of allowed reference values.<a href="#section-2-7.1" class="pilcrow">¶</a>
+<li class="normal" id="section-2-7.1">The actual value must be in the set of allowed reference values.<a href="#section-2-7.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-2-7.2">The current value must not be in the set of disallowed reference values.<a href="#section-2-7.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-2-7.2">The actual value must not be in the set of disallowed reference values.<a href="#section-2-7.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-2-7.3">The current value must be in a range where two reference values are the min and max.<a href="#section-2-7.3" class="pilcrow">¶</a>
+        <li class="normal" id="section-2-7.3">The actual value must be in a range where two reference values are the min and max.<a href="#section-2-7.3" class="pilcrow">¶</a>
 </li>
       </ul>
 <div id="rats-conceptual-messages">
@@ -1259,7 +1263,7 @@ the current value against the set of reference values.<a href="#section-2-5" cla
         </h3>
 <p id="section-2.1-1">RATS conceptual messages in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> fall into the above categories as follows:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2.1-2.1">Current state: Evidence, Endorsements, Attestation Results<a href="#section-2.1-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-2.1-2.1">Actual state: Evidence, Endorsements, Attestation Results<a href="#section-2.1-2.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.1-2.2">Reference state: Reference Values<a href="#section-2.1-2.2" class="pilcrow">¶</a>
 </li>
@@ -1272,108 +1276,108 @@ as discussed in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.
 <figure id="figure-1">
           <div id="section-2.1-4.1">
             <div class="alignCenter art-svg artwork" id="section-2.1-4.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="336" width="568" viewBox="0 0 568 336" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="336" width="560" viewBox="0 0 560 336" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 104,48 L 104,224" fill="none" stroke="black"></path>
                 <path d="M 104,288 L 104,304" fill="none" stroke="black"></path>
                 <path d="M 128,32 L 128,80" fill="none" stroke="black"></path>
                 <path d="M 128,112 L 128,160" fill="none" stroke="black"></path>
                 <path d="M 128,192 L 128,240" fill="none" stroke="black"></path>
                 <path d="M 128,272 L 128,320" fill="none" stroke="black"></path>
-                <path d="M 240,32 L 240,80" fill="none" stroke="black"></path>
-                <path d="M 240,112 L 240,160" fill="none" stroke="black"></path>
-                <path d="M 240,192 L 240,240" fill="none" stroke="black"></path>
-                <path d="M 240,272 L 240,320" fill="none" stroke="black"></path>
-                <path d="M 304,80 L 304,176" fill="none" stroke="black"></path>
-                <path d="M 376,32 L 376,80" fill="none" stroke="black"></path>
-                <path d="M 376,112 L 376,160" fill="none" stroke="black"></path>
-                <path d="M 376,192 L 376,240" fill="none" stroke="black"></path>
-                <path d="M 376,272 L 376,320" fill="none" stroke="black"></path>
-                <path d="M 520,32 L 520,80" fill="none" stroke="black"></path>
-                <path d="M 520,112 L 520,160" fill="none" stroke="black"></path>
-                <path d="M 520,192 L 520,240" fill="none" stroke="black"></path>
-                <path d="M 520,272 L 520,320" fill="none" stroke="black"></path>
-                <path d="M 544,48 L 544,304" fill="none" stroke="black"></path>
-                <path d="M 128,32 L 240,32" fill="none" stroke="black"></path>
-                <path d="M 376,32 L 520,32" fill="none" stroke="black"></path>
-                <path d="M 128,80 L 240,80" fill="none" stroke="black"></path>
-                <path d="M 376,80 L 520,80" fill="none" stroke="black"></path>
-                <path d="M 128,112 L 240,112" fill="none" stroke="black"></path>
-                <path d="M 376,112 L 520,112" fill="none" stroke="black"></path>
-                <path d="M 128,160 L 240,160" fill="none" stroke="black"></path>
-                <path d="M 376,160 L 520,160" fill="none" stroke="black"></path>
-                <path d="M 128,192 L 240,192" fill="none" stroke="black"></path>
-                <path d="M 264,190 L 352,190" fill="none" stroke="black"></path>
-                <path d="M 264,194 L 352,194" fill="none" stroke="black"></path>
-                <path d="M 376,192 L 520,192" fill="none" stroke="black"></path>
-                <path d="M 128,240 L 240,240" fill="none" stroke="black"></path>
-                <path d="M 376,240 L 520,240" fill="none" stroke="black"></path>
-                <path d="M 128,272 L 240,272" fill="none" stroke="black"></path>
-                <path d="M 376,272 L 520,272" fill="none" stroke="black"></path>
-                <path d="M 128,320 L 240,320" fill="none" stroke="black"></path>
-                <path d="M 376,320 L 520,320" fill="none" stroke="black"></path>
-                <polygon class="arrowhead" points="360,192 348,186.4 348,197.6" fill="black" transform="rotate(0,352,192)"></polygon>
-                <polygon class="arrowhead" points="312,176 300,170.4 300,181.6" fill="black" transform="rotate(90,304,176)"></polygon>
-                <polygon class="arrowhead" points="272,192 260,186.4 260,197.6" fill="black" transform="rotate(180,264,192)"></polygon>
+                <path d="M 232,32 L 232,80" fill="none" stroke="black"></path>
+                <path d="M 232,112 L 232,160" fill="none" stroke="black"></path>
+                <path d="M 232,192 L 232,240" fill="none" stroke="black"></path>
+                <path d="M 232,272 L 232,320" fill="none" stroke="black"></path>
+                <path d="M 296,80 L 296,176" fill="none" stroke="black"></path>
+                <path d="M 368,32 L 368,80" fill="none" stroke="black"></path>
+                <path d="M 368,112 L 368,160" fill="none" stroke="black"></path>
+                <path d="M 368,192 L 368,240" fill="none" stroke="black"></path>
+                <path d="M 368,272 L 368,320" fill="none" stroke="black"></path>
+                <path d="M 512,32 L 512,80" fill="none" stroke="black"></path>
+                <path d="M 512,112 L 512,160" fill="none" stroke="black"></path>
+                <path d="M 512,192 L 512,240" fill="none" stroke="black"></path>
+                <path d="M 512,272 L 512,320" fill="none" stroke="black"></path>
+                <path d="M 536,48 L 536,304" fill="none" stroke="black"></path>
+                <path d="M 128,32 L 232,32" fill="none" stroke="black"></path>
+                <path d="M 368,32 L 512,32" fill="none" stroke="black"></path>
+                <path d="M 128,80 L 232,80" fill="none" stroke="black"></path>
+                <path d="M 368,80 L 512,80" fill="none" stroke="black"></path>
+                <path d="M 128,112 L 232,112" fill="none" stroke="black"></path>
+                <path d="M 368,112 L 512,112" fill="none" stroke="black"></path>
+                <path d="M 128,160 L 232,160" fill="none" stroke="black"></path>
+                <path d="M 368,160 L 512,160" fill="none" stroke="black"></path>
+                <path d="M 128,192 L 232,192" fill="none" stroke="black"></path>
+                <path d="M 256,190 L 344,190" fill="none" stroke="black"></path>
+                <path d="M 256,194 L 344,194" fill="none" stroke="black"></path>
+                <path d="M 368,192 L 512,192" fill="none" stroke="black"></path>
+                <path d="M 128,240 L 232,240" fill="none" stroke="black"></path>
+                <path d="M 368,240 L 512,240" fill="none" stroke="black"></path>
+                <path d="M 128,272 L 232,272" fill="none" stroke="black"></path>
+                <path d="M 368,272 L 512,272" fill="none" stroke="black"></path>
+                <path d="M 128,320 L 232,320" fill="none" stroke="black"></path>
+                <path d="M 368,320 L 512,320" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="352,192 340,186.4 340,197.6" fill="black" transform="rotate(0,344,192)"></polygon>
+                <polygon class="arrowhead" points="304,176 292,170.4 292,181.6" fill="black" transform="rotate(90,296,176)"></polygon>
+                <polygon class="arrowhead" points="264,192 252,186.4 252,197.6" fill="black" transform="rotate(180,256,192)"></polygon>
                 <g class="text">
                   <text x="112" y="36">/</text>
-                  <text x="304" y="36">Appraisal</text>
-                  <text x="544" y="36">\</text>
-                  <text x="160" y="52">Current</text>
-                  <text x="216" y="52">state</text>
-                  <text x="300" y="52">Policy</text>
-                  <text x="424" y="52">Reference</text>
-                  <text x="488" y="52">state</text>
+                  <text x="296" y="36">Appraisal</text>
+                  <text x="536" y="36">\</text>
+                  <text x="156" y="52">Actual</text>
+                  <text x="208" y="52">state</text>
+                  <text x="292" y="52">Policy</text>
+                  <text x="416" y="52">Reference</text>
+                  <text x="480" y="52">state</text>
                   <text x="172" y="68">(layer</text>
                   <text x="212" y="68">N)</text>
-                  <text x="436" y="68">(layer</text>
-                  <text x="476" y="68">N)</text>
-                  <text x="560" y="68">R</text>
-                  <text x="560" y="84">e</text>
-                  <text x="560" y="100">f</text>
-                  <text x="560" y="116">e</text>
+                  <text x="428" y="68">(layer</text>
+                  <text x="468" y="68">N)</text>
+                  <text x="552" y="68">R</text>
+                  <text x="552" y="84">e</text>
+                  <text x="552" y="100">f</text>
+                  <text x="552" y="116">e</text>
                   <text x="60" y="132">Evidence</text>
-                  <text x="160" y="132">Current</text>
-                  <text x="216" y="132">state</text>
-                  <text x="424" y="132">Reference</text>
-                  <text x="488" y="132">state</text>
-                  <text x="560" y="132">r</text>
+                  <text x="156" y="132">Actual</text>
+                  <text x="208" y="132">state</text>
+                  <text x="416" y="132">Reference</text>
+                  <text x="480" y="132">state</text>
+                  <text x="552" y="132">r</text>
                   <text x="172" y="148">(layer</text>
                   <text x="212" y="148">2)</text>
-                  <text x="436" y="148">(layer</text>
-                  <text x="476" y="148">2)</text>
-                  <text x="560" y="148">e</text>
-                  <text x="560" y="164">n</text>
-                  <text x="560" y="180">c</text>
-                  <text x="560" y="196">e</text>
-                  <text x="160" y="212">Current</text>
-                  <text x="216" y="212">state</text>
-                  <text x="308" y="212">Comparison</text>
-                  <text x="424" y="212">Reference</text>
-                  <text x="488" y="212">state</text>
+                  <text x="428" y="148">(layer</text>
+                  <text x="468" y="148">2)</text>
+                  <text x="552" y="148">e</text>
+                  <text x="552" y="164">n</text>
+                  <text x="552" y="180">c</text>
+                  <text x="552" y="196">e</text>
+                  <text x="156" y="212">Actual</text>
+                  <text x="208" y="212">state</text>
+                  <text x="300" y="212">Comparison</text>
+                  <text x="416" y="212">Reference</text>
+                  <text x="480" y="212">state</text>
                   <text x="172" y="228">(layer</text>
                   <text x="212" y="228">1)</text>
-                  <text x="304" y="228">Rules</text>
-                  <text x="436" y="228">(layer</text>
-                  <text x="476" y="228">1)</text>
-                  <text x="560" y="228">V</text>
+                  <text x="296" y="228">Rules</text>
+                  <text x="428" y="228">(layer</text>
+                  <text x="468" y="228">1)</text>
+                  <text x="552" y="228">V</text>
                   <text x="104" y="244">\</text>
-                  <text x="560" y="244">a</text>
-                  <text x="560" y="260">l</text>
+                  <text x="552" y="244">a</text>
+                  <text x="552" y="260">l</text>
                   <text x="104" y="276">/</text>
-                  <text x="560" y="276">u</text>
+                  <text x="552" y="276">u</text>
                   <text x="48" y="292">Endorsement</text>
-                  <text x="160" y="292">Current</text>
-                  <text x="216" y="292">state</text>
-                  <text x="424" y="292">Reference</text>
-                  <text x="488" y="292">state</text>
-                  <text x="560" y="292">e</text>
+                  <text x="156" y="292">Actual</text>
+                  <text x="208" y="292">state</text>
+                  <text x="416" y="292">Reference</text>
+                  <text x="480" y="292">state</text>
+                  <text x="552" y="292">e</text>
                   <text x="172" y="308">(layer</text>
                   <text x="212" y="308">0)</text>
-                  <text x="436" y="308">(layer</text>
-                  <text x="476" y="308">0)</text>
-                  <text x="560" y="308">s</text>
+                  <text x="428" y="308">(layer</text>
+                  <text x="468" y="308">0)</text>
+                  <text x="552" y="308">s</text>
                   <text x="104" y="324">\</text>
-                  <text x="544" y="324">/</text>
+                  <text x="536" y="324">/</text>
                 </g>
               </svg><a href="#section-2.1-4.1.1" class="pilcrow">¶</a>
 </div>
@@ -1387,50 +1391,81 @@ the typical case, there could be multiple layers within it, such as
 a chip added to a hardware board potentially from a different vendor.<a href="#section-2.1-5" class="pilcrow">¶</a></p>
 <p id="section-2.1-6">A Trust Anchor Store is a special case of
 state above, where the Reference State would be the set of trust anchors
-accepted (or rejected) by the Verifier, and the Current State would be
-a trust anchor used to sign Evidence or Endorsements.<a href="#section-2.1-6" class="pilcrow">¶</a></p>
-<p id="section-2.1-7">In layered attestation using DICE <span>[<a href="#TCG-DICE" class="cite xref">TCG-DICE</a>]</span> for example, the current state of each layer
+accepted (or rejected) by the Verifier, and the Actual State would be
+a trust anchor used to verify Evidence or Endorsements.<a href="#section-2.1-6" class="pilcrow">¶</a></p>
+<p id="section-2.1-7">In layered attestation using DICE <span>[<a href="#TCG-DICE" class="cite xref">TCG-DICE</a>]</span> for example, the actual state of each layer
 is signed by a key held by the next lower layer.  Thus in the example diagram
-above, the layer 2 current state (e.g., OS state) is signed by a layer 1 key
-(e.g., a signing key used by the firmware), the layer 1 current state (e.g.,
+above, the layer 2 actual state (e.g., OS state) is signed by a layer 1 key
+(e.g., a signing key used by the firmware), the layer 1 actual state (e.g.,
 firmware state) is signed by a layer 0 key (e.g., a hardware key stored in ROM),
-and the layer 0 current state (hardware specs and key ID) is signed by a layer 0
+and the layer 0 actual state (hardware specs and key ID) is signed by a layer 0
 key (e.g., a vendor key) which is matched against the Verifier's trust anchor
 store, which is part of the layer 0 reference state depicted above.<a href="#section-2.1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<div id="endorsement-format-considerations">
+<div id="conditionally-endorsed-values">
 <section id="section-3">
-      <h2 id="name-endorsement-format-consider">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-endorsement-format-consider" class="section-name selfRef">Endorsement Format Considerations</a>
+      <h2 id="name-conditionally-endorsed-valu">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conditionally-endorsed-valu" class="section-name selfRef">Conditionally Endorsed Values</a>
       </h2>
-<p id="section-3-1">This section discusses considerations around formats for Endorsements.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">Some claims in endorsements might be conditional. A claim is conditional if
+it only applies if actual state matches reference values, according to some
+matching policy.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Endorsers should not use conditionally endorsed values based on immutable
+values of actual state in Evidence (such as an immutable serial number for example).
+An Endorser can, however, use conditionally endorsed values based on mutable
+values.  For example an Endorser for a given CPU might provide additional
+information about what the CPU supports based on current firmware configuration
+state.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">Policies around matching actual state in Evidence against
+reference states are normally expressed in Appraisal Policy for Evidence.
+Similarly, reference states are normally expressed in the Reference Values
+conceptual message.  Such policies allow a Verifier and Relying Parties to make
+their decisions about trustworthiness of an Attester.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">The use of conditionally endorsed values, however, is different in that
+a matching policy is not about trustworthiness (and hence not "appraisal" per se)
+but rather about whether an Endorser's claim is applicable or not, and thus
+usable as input to trustworthiness appraisal or not.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-5">As such the matching policy for conditionally endorsed values must be
+up to the Endorser not the Appraisal Policy Provider.  Thus, an Endorsement
+format that supports conditionally endorsed values would probably include
+some minimal matching policy (e.g., exact match against a singleton reference
+value).  This unfortunately complicates design as a Verifier may need
+multiple parsers for matching policies.<a href="#section-3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="endorsement-format-considerations">
+<section id="section-4">
+      <h2 id="name-endorsement-format-consider">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-endorsement-format-consider" class="section-name selfRef">Endorsement Format Considerations</a>
+      </h2>
+<p id="section-4-1">This section discusses considerations around formats for Endorsements.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="security-considerations">
-<section id="section-3.1">
+<section id="section-4.1">
         <h3 id="name-security-considerations">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
         </h3>
-<p id="section-3.1-1">In many scenarios, a Verifiers can also support a variety of different formats,
+<p id="section-4.1-1">In many scenarios, a Verifiers can also support a variety of different formats,
 and while code size may not be a huge concern, simplicity and correctness of code
 is essential to security.  "Complexity is the enemy of security" is a popular
 security mantra and hence to increase security, any decrease in complexity
 helps.  As such, using the same format for both Evidence and Endorsements
-can reduce complexity and hence increase security.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+can reduce complexity and hence increase security.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="scalability">
-<section id="section-3.2">
+<section id="section-4.2">
         <h3 id="name-scalability-considerations">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-scalability-considerations" class="section-name selfRef">Scalability Considerations</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-scalability-considerations" class="section-name selfRef">Scalability Considerations</a>
         </h3>
-<p id="section-3.2-1">We currently assume that Reference Value Providers and Endorsers typically
+<p id="section-4.2-1">We currently assume that Reference Value Providers and Endorsers typically
 provide the same information to a potentially large number of clients
 (Verifiers, or potentially to other entities for later relay to a Verifier),
 and are generally on devices that are not constrained nodes, and hence additional
-scalability, including code size, is not a significant concern.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">The scenario where scalability in terms of code size is strongest, however, is
+scalability, including code size, is not a significant concern.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">The scenario where scalability in terms of code size is strongest, however, is
 when a Verifier is embedded into a constrained node.  For example, when a constrained
 node is a Relying Party for most purposes, but still needs a way to establish
 trust in the Verifier it will use.  In such a case, the Relying Party may have
@@ -1440,29 +1475,31 @@ for purposes of appraising its desired Verifier which it treats as only an Attes
 and once verified, then uses it for verification of all other attesters.
 In this scenario, the embedded Verifier may have code and data size constraints,
 and a very simple (by comparison) appraisal policy and desired state (e.g.,
-a required trust anchor that Evidence must be signed with and little else).<a href="#section-3.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.2-3">Using the same message format for Evidence, Endorsements, and (later) Attestation Results received
+a required trust anchor that Evidence must be signed with and little else).<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">Using the same message format for Evidence, Endorsements, and (later) Attestation Results received
 from the later Verifier, can provide a code size savings due to having only a single parser
-in this limited case.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+in this limited case.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.2-4">Similarly, an embedded constrained Verifier can choose to not support conditionally
+endorsed values, in order to avoid complexity introduced by such.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-iana-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-4-1">This document does not require any actions by IANA.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This document does not require any actions by IANA.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<section id="section-5">
+<section id="section-6">
       <h2 id="name-references">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
-<section id="section-5.1">
+<section id="section-6.1">
         <h3 id="name-normative-references">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC9334">[RFC9334]</dt>
@@ -1471,9 +1508,9 @@ in this limited case.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
-<section id="section-5.2">
+<section id="section-6.2">
         <h3 id="name-informative-references">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="TCG-DICE">[TCG-DICE]</dt>

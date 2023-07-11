@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-09T00:43:24.601198+00:00",
+  "timestamp": "2023-07-11T00:34:47.450272+00:00",
   "repo": "dthaler/rats-endorsements",
   "labels": [
     {
@@ -55,17 +55,138 @@
       "id": "I_kwDOJj8oQM5nCuIi",
       "title": "Add text about endorsements for layers other than the bottom",
       "url": "https://github.com/dthaler/rats-endorsements/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dthaler",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-05-27T14:45:15Z",
-      "updatedAt": "2023-05-27T14:45:15Z",
-      "closedAt": null,
+      "updatedAt": "2023-07-10T22:20:18Z",
+      "closedAt": "2023-07-10T22:20:18Z",
       "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOJj8oQM5VH2_B",
+      "title": "Conditionally endorsed values",
+      "url": "https://github.com/dthaler/rats-endorsements/pull/2",
+      "state": "MERGED",
+      "author": "dthaler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses https://github.com/dthaler/rats-endorsements-old/issues/3",
+      "createdAt": "2023-07-10T19:43:08Z",
+      "updatedAt": "2023-07-10T21:37:39Z",
+      "baseRepository": "dthaler/rats-endorsements",
+      "baseRefName": "main",
+      "baseRefOid": "9524b12691128dfb90d871a34d6fcda43be9ecfe",
+      "headRepository": "dthaler/rats-endorsements",
+      "headRefName": "conditional",
+      "headRefOid": "9242494fd3834b0a195869403e6f57518e46f5db",
+      "closedAt": "2023-07-10T21:37:35Z",
+      "mergedAt": "2023-07-10T21:37:35Z",
+      "mergedBy": "dthaler",
+      "mergeCommit": {
+        "oid": "03a724a1227d5c6700832f38258ad744fb71e264"
+      },
+      "comments": [
+        {
+          "author": "dthaler",
+          "authorAssociation": "OWNER",
+          "body": "@thomas-fossati what do you think?",
+          "createdAt": "2023-07-10T19:43:41Z",
+          "updatedAt": "2023-07-10T19:43:41Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJj8oQM5ax3R4",
+          "commit": {
+            "abbreviatedOid": "9242494"
+          },
+          "author": "nedmsmith",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-07-10T20:49:27Z",
+          "updatedAt": "2023-07-10T20:49:27Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOJj8oQM5VIbm4",
+      "title": "Add notion of identity endorsements",
+      "url": "https://github.com/dthaler/rats-endorsements/pull/3",
+      "state": "MERGED",
+      "author": "dthaler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses https://github.com/dthaler/rats-endorsements-old/issues/2\r\n\r\nHowever I don't think they're really another type of endorsement per se, use is really up to the Appraisal Policy for Evidence.",
+      "createdAt": "2023-07-10T21:33:31Z",
+      "updatedAt": "2023-07-10T21:49:24Z",
+      "baseRepository": "dthaler/rats-endorsements",
+      "baseRefName": "main",
+      "baseRefOid": "03a724a1227d5c6700832f38258ad744fb71e264",
+      "headRepository": "dthaler/rats-endorsements",
+      "headRefName": "identity",
+      "headRefOid": "f27b478bb2c85bf55e01eaeb663398fddc6fbe8d",
+      "closedAt": "2023-07-10T21:47:22Z",
+      "mergedAt": "2023-07-10T21:47:22Z",
+      "mergedBy": "dthaler",
+      "mergeCommit": {
+        "oid": "fa5faefc69f838a2502be87ffc230eb9d5bf6bd9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJj8oQM5ayJV6",
+          "commit": {
+            "abbreviatedOid": "f27b478"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "This is possible a bit off topic, but I have been considering the case for SCITT and KT,  where the COSE payload is a key content type (jwk+json, or cose-key) and the header contains claims that bind that key to an identifier, for example `email` or `website`... \n\nIt's nice be able to dedicate the entire payload to a content type, but this leaves only headers to establish relationships.\n\nFor example SCITT has feeds, which would support this... You could have a feed that only supports endorsed keys, from certain parties and for certain purposes, but with support for multiple key content types.",
+          "createdAt": "2023-07-10T21:48:47Z",
+          "updatedAt": "2023-07-10T21:49:24Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOJj8oQM5VIn-T",
+      "title": "Add text about multiple endorsements, up to one per layer",
+      "url": "https://github.com/dthaler/rats-endorsements/pull/4",
+      "state": "MERGED",
+      "author": "dthaler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #1",
+      "createdAt": "2023-07-10T22:17:28Z",
+      "updatedAt": "2023-07-10T22:20:20Z",
+      "baseRepository": "dthaler/rats-endorsements",
+      "baseRefName": "main",
+      "baseRefOid": "fa5faefc69f838a2502be87ffc230eb9d5bf6bd9",
+      "headRepository": "dthaler/rats-endorsements",
+      "headRefName": "multiple",
+      "headRefOid": "d6dc8574b00047672babafc575b18d794975d2ec",
+      "closedAt": "2023-07-10T22:20:17Z",
+      "mergedAt": "2023-07-10T22:20:17Z",
+      "mergedBy": "dthaler",
+      "mergeCommit": {
+        "oid": "9f56c39f6ecfce2ef571bdeda025916decc709cc"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }

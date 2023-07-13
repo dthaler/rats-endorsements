@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-11T00:34:47.450272+00:00",
+  "timestamp": "2023-07-13T00:39:02.755778+00:00",
   "repo": "dthaler/rats-endorsements",
   "labels": [
     {
@@ -64,6 +64,22 @@
       "createdAt": "2023-05-27T14:45:15Z",
       "updatedAt": "2023-07-10T22:20:18Z",
       "closedAt": "2023-07-10T22:20:18Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOJj8oQM5rQhSX",
+      "title": "Requested feedback",
+      "url": "https://github.com/dthaler/rats-endorsements/issues/5",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "- The following is NOT always applicable: \r\n> where actual state has a single value per claim per component applying to one device at one point in time, reference state has a set of values per claim per component (\u00a72)\r\n\r\nIt may very well be the case that there is only one Reference Value per Claim per component (e.g., _MRENCLAVE_ in SGX).\r\n\r\n- The following is NOT always the case: \r\n> Actual state: Evidence, Endorsements, Attestation Results (\u00a72.1)\r\n\r\nAs a counterexample, _CPUSVN_ inside PCK cert (Endorsement) may be older than the one in Evidence (QE Report Body). \r\n\r\n- I think the draft currently focuses on a very specific case rather than the goal stated in the abstract: \r\n> explains the purpose and role of Endorsements\r\n\r\nOne of the major purposes of Endorsements is to provide identity endorsement, which is never discussed in the draft. \r\n\r\n- Clarify \"group of claims\" vs. \"set of claims\" (e.g., as used in \u00a72)\r\n\r\n- Clarify the definition of \"Claim\" and explain: \r\n> for our purposes we will treat such a list as a single unit (\u00a72)\r\n\r\nFor example, I am thinking about _attributes_ and _Security Version Numbers_ in SGX/TDX. For instance, SGX TCB Security Version Number (SVN) has 16 components, so would each component be treated as a Claim, or would the SVN be treated as a single unit?\r\n\r\n- Clarify \"reference values\" vs. \"Reference Values\" ",
+      "createdAt": "2023-07-11T18:07:25Z",
+      "updatedAt": "2023-07-11T18:07:25Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -130,7 +146,7 @@
       "labels": [],
       "body": "Addresses https://github.com/dthaler/rats-endorsements-old/issues/2\r\n\r\nHowever I don't think they're really another type of endorsement per se, use is really up to the Appraisal Policy for Evidence.",
       "createdAt": "2023-07-10T21:33:31Z",
-      "updatedAt": "2023-07-10T21:49:24Z",
+      "updatedAt": "2023-07-11T09:25:48Z",
       "baseRepository": "dthaler/rats-endorsements",
       "baseRefName": "main",
       "baseRefOid": "03a724a1227d5c6700832f38258ad744fb71e264",
@@ -156,6 +172,19 @@
           "body": "This is possible a bit off topic, but I have been considering the case for SCITT and KT,  where the COSE payload is a key content type (jwk+json, or cose-key) and the header contains claims that bind that key to an identifier, for example `email` or `website`... \n\nIt's nice be able to dedicate the entire payload to a content type, but this leaves only headers to establish relationships.\n\nFor example SCITT has feeds, which would support this... You could have a feed that only supports endorsed keys, from certain parties and for certain purposes, but with support for multiple key content types.",
           "createdAt": "2023-07-10T21:48:47Z",
           "updatedAt": "2023-07-10T21:49:24Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJj8oQM5a1AmR",
+          "commit": {
+            "abbreviatedOid": "f27b478"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "belated \ud83d\udc4d",
+          "createdAt": "2023-07-11T09:25:48Z",
+          "updatedAt": "2023-07-11T09:25:48Z",
           "comments": []
         }
       ]
